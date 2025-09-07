@@ -1,4 +1,3 @@
-mod model;
 mod parser;
 
 use tokio::io::{AsyncReadExt, AsyncWriteExt};

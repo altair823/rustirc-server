@@ -1,0 +1,26 @@
+message,expected
+":nick!user@host PRIVMSG #channel :Hello, world!",success
+:server.name 001 nick :Welcome to the IRC server,success
+PING :123456789,success
+NOTICE Auth :*** Looking up your hostname...,success
+JOIN #channel,success
+PART #channel :Goodbye,success
+:nick!user@host QUIT :Quit message,success
+:nick!user@host MODE #channel +o othernick,success
+NICK newnick,success
+USER guest 0 * :Ronnie Reagan,success
+:server.name 375 nick :- server.name Message of the Day -,success
+TOPIC #channel :New topic,success
+:nick!user@host KICK #channel baduser :reason,success
+INVITE othernick #channel,success
+:nick!user@host PONG server.name,success
+,failure
+:nick!user@host,failure
+PRIVMSG,failure
+1234 nick :Too long numeric,failure
+:nick!user@host PRIVMSG,failure
+JOIN,failure
+USER guest 0 *,failure
+NOTICE,failure
+:nick!user@host PONG,failure
+PART,failure
