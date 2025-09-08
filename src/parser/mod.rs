@@ -1,3 +1,4 @@
+pub mod message_parser;
 mod model;
-pub mod parser;
+mod prefix_parser;
 mod response;
