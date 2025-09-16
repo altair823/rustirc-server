@@ -3,7 +3,7 @@ use crate::parser::model::error::ParseError;
 use crate::parser::model::message::{Message, Prefix};
 use crate::parser::prefix_parser::parse_prefix;
 
-pub fn parse_message(input: &str) -> Result<Message, ParseError> {
+pub fn parse_message(input: &str) -> Result<Message<'_>, ParseError> {
     let input = input.trim_end_matches("\r\n");
     let parts: Vec<&str> = input.splitn(3, ' ').collect();
     if parts.len() < 2 {

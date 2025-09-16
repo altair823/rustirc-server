@@ -4,7 +4,7 @@ use crate::parser::model::message::Prefix;
 use regex::{Regex, RegexBuilder};
 use std::sync::LazyLock;
 
-pub fn parse_prefix(input: &str) -> Result<Prefix, ParseError> {
+pub fn parse_prefix(input: &str) -> Result<Prefix<'_>, ParseError> {
     static PREFIX_REGEX: LazyLock<Regex> = LazyLock::new(|| {
         RegexBuilder::new(
             r"^:(?P<server_or_nick>[A-Za-z0-9\-\[\]\\`^{}:./]*)(!(?P<user>[^@ ]+))?(@(?P<host>[^ ]+))?$")
